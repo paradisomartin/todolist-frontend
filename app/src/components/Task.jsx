@@ -13,7 +13,10 @@ const Task = ({ title, description, date, bgColor }) => {
     >
       <HStack justifyContent="space-between">
         <HStack>
-          <Checkbox size="lg" colorScheme="green" /> {/* Checkbox al inicio */}
+          <Checkbox
+            borderColor="gray.400" // Cambia el color del borde del checkbox
+            boxShadow="md" // Agrega sombra al checkbox
+          />
           <Heading as="h3" size="md">
             {title}
           </Heading>

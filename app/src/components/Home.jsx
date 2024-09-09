@@ -1,13 +1,17 @@
-// src/components/Home.jsx
+// src/App.jsx
 import { Box } from "@chakra-ui/react";
-import TasksList from "./TaskList";
+import Header from "./Header";
+import Footer from "./Footer";
+import TasksList from "./TasksList";
 
-const Home = () => {
+function App() {
   return (
-    <Box textAlign="center" py={10} px={6}>
+    <Box display="flex" flexDirection="column" minHeight="100vh">
+      <Header />
       <TasksList />
+      <Footer />
     </Box>
   );
-};
+}
 
-export default Home;
+export default App;
