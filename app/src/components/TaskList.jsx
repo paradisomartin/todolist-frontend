@@ -1,6 +1,7 @@
 // src/components/TasksList.jsx
 import { Box, VStack } from "@chakra-ui/react";
-import Task from "./Task"; // Importamos el componente Task
+import Task from "./Task";
+import { getRandomSoftColor } from "../utils/getRandomSoftColor";
 
 // Un array de ejemplo con tareas
 const tasks = [
@@ -25,17 +26,25 @@ const tasks = [
 ];
 
 const TasksList = () => {
+  let previousColor = ""; // Inicializamos una variable para guardar el color anterior
+
   return (
     <Box display="flex" justifyContent="center" alignItems="center" height="100vh" p={4}>
       <VStack spacing={6} align="stretch" width="60%">
-        {tasks.map((task) => (
-          <Task // Usamos el componente Task
-            key={task.id}
-            title={task.title}
-            description={task.description}
-            date={task.date}
-          />
-        ))}
+        {tasks.map((task) => {
+          const color = getRandomSoftColor(previousColor); // Obtenemos un color diferente al anterior
+          previousColor = color; // Actualizamos el color anterior
+
+          return (
+            <Task
+              key={task.id}
+              title={task.title}
+              description={task.description}
+              date={task.date}
+              bgColor={color} // Pasamos el color generado
+            />
+          );
+        })}
       </VStack>
     </Box>
   );

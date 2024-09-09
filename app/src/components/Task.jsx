@@ -1,7 +1,7 @@
 // src/components/Task.jsx
 import { Box, Text, Heading, HStack, Badge, Checkbox } from "@chakra-ui/react";
 
-const Task = ({ title, description, date }) => {
+const Task = ({ title, description, date, bgColor }) => {
   return (
     <Box
       borderWidth="1px"
@@ -9,7 +9,7 @@ const Task = ({ title, description, date }) => {
       boxShadow="md"
       p={4}
       width="100%"
-      bg="white"
+      bg={bgColor}
     >
       <HStack justifyContent="space-between">
         <HStack>
