@@ -1,20 +1,13 @@
 // src/components/Header.jsx
-import { Box, Heading, Text, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Heading, Text, Grid, GridItem, Button } from "@chakra-ui/react";
+import { useAuth } from "../context/authContext";
 
 const Header = () => {
+  const { logout } = useAuth();
+
   return (
-    <Box
-      as="header"
-      width="100%"
-      bg="#FFEBE6"
-      p={4}
-      boxShadow="md"
-    >
-      <Grid
-        templateColumns="1fr auto 1fr"
-        alignItems="center"
-        width="100%"
-      >
+    <Box as="header" width="100%" bg="#FFEBE6" p={4} boxShadow="md">
+      <Grid templateColumns="1fr auto 1fr" alignItems="center" width="100%">
         <GridItem>
           <Text fontSize="md" ml={4}>
             Buenos Aires, Argentina
@@ -25,7 +18,11 @@ const Header = () => {
             The Todo List
           </Heading>
         </GridItem>
-        <GridItem></GridItem> {/* Espacio vacío a la derecha */}
+        <GridItem textAlign="right">
+          <Button onClick={logout} colorScheme="red" size="sm">
+            Logout
+          </Button>
+        </GridItem>
       </Grid>
     </Box>
   );
